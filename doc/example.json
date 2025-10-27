@@ -1,0 +1,20 @@
+{
+  "isFull": false,
+  "list": [
+    {
+      "title": "基础示例",
+      "description": "展示 column-split 组件的基本用法，包括正常状态、只读状态和禁用状态。",
+      "code": "./base.js",
+      "scope": [
+        {
+          "name": "_ColumnSplit",
+          "packageName": "@kne/current-lib_column-split",
+          "importStatement": "import * as _ColumnSplit from \"@kne/column-split\""
+        },
+        {
+          "packageName": "@kne/current-lib_column-split/dist/index.css"
+        }
+      ]
+    }
+  ]
+}
