@@ -1,6 +1,6 @@
 {
   "name": "@kne/column-split",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "通过拖动分隔条分配元素占比",
   "syntax": {
     "esmodules": true

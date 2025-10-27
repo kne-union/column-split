@@ -35,7 +35,7 @@ const ColumnSplit = ({ columns = [], className, readOnly, disabled, ...props }) 
           {}
         );
         //修正value最后一个值;
-        value[last.name] = 1 - otherValue;
+        value[last.name] = Math.round(100 * (1 - otherValue)) / 100;
         onChange(value);
       }}
     >
