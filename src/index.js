@@ -6,7 +6,7 @@ import useControlValue from '@kne/use-control-value';
 import { MoreOutlined } from '@ant-design/icons';
 import style from './style.module.scss';
 
-const ColumnSplit = ({ columns = [], className, readOnly, disabled, ...props }) => {
+const ColumnSplit = ({ columns = [], className, renderItem, readOnly, disabled, ...props }) => {
   const [value, onChange] = useControlValue(props);
   if (columns.length === 0) {
     return null;
@@ -41,6 +41,13 @@ const ColumnSplit = ({ columns = [], className, readOnly, disabled, ...props }) 
     >
       {columns.map((column, index) => {
         const itemValue = get(value, column.name) || 1 / columns.length;
+        const valueStr = typeof column.render === 'function' ? column.render({ value: itemValue }) : `${Math.round(100 * itemValue)}%`;
+        const el = (
+          <Flex vertical align="center" justify="center">
+            {column.title}
+            <span>{valueStr}</span>
+          </Flex>
+        );
         return (
           <Splitter.Panel
             key={column.name || index}
@@ -52,9 +59,8 @@ const ColumnSplit = ({ columns = [], className, readOnly, disabled, ...props }) 
               '--color': column.color
             }}
           >
-            <Flex vertical justify="center" align="center" className={classnames(style['column-item-content'], 'column-item-content')}>
-              {column.title}
-              <span>{`${Math.round(100 * itemValue)}%`}</span>
+            <div className={classnames(style['column-item-content'], 'column-item-content')}>
+              {typeof renderItem === 'function' ? renderItem({ item: column, value: itemValue, valueStr, el, index }) : el}
               {index < columns.length - 1 && (
                 <Flex className={classnames(style['column-item-handler-left'], 'column-item-handler-left')}>
                   <MoreOutlined />
@@ -65,7 +71,7 @@ const ColumnSplit = ({ columns = [], className, readOnly, disabled, ...props }) 
                   <MoreOutlined />
                 </Flex>
               )}
-            </Flex>
+            </div>
           </Splitter.Panel>
         );
       })}
