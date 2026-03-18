@@ -99,33 +99,35 @@ const ColumnSplit = ({ columns = [], className, renderItem, readOnly, disabled, 
           );
         })}
       </Splitter>
-      <Space.Compact block>
-        {disabledColumns.map((column, index) => {
-          const itemValue = 0;
-          const valueStr = typeof column.render === 'function' ? column.render({ value: itemValue }) : `${Math.round(100 * itemValue)}%`;
-          const el = (
-            <Button
-              variant="outlined"
-              className={style['zero-item']}
-              shape="round"
-              size="small"
-              style={{
-                '--color': column.color
-              }}
-              onClick={() => {
-                const newValue = showColumn(value, column, activeColumns);
-                onChange(newValue);
-              }}
-            >
-              <Flex align="center" justify="center">
-                {column.title}
-                <span>{valueStr}</span>
-              </Flex>
-            </Button>
-          );
-          return <Fragment key={column.name || index}>{typeof renderItem === 'function' ? renderItem({ item: column, value: itemValue, valueStr, el, index }) : el}</Fragment>;
-        })}
-      </Space.Compact>
+      {disabled || readOnly || !allowZero ? null : (
+        <Space.Compact block>
+          {disabledColumns.map((column, index) => {
+            const itemValue = 0;
+            const valueStr = typeof column.render === 'function' ? column.render({ value: itemValue }) : `${Math.round(100 * itemValue)}%`;
+            const el = (
+              <Button
+                variant="outlined"
+                className={style['zero-item']}
+                shape="round"
+                size="small"
+                style={{
+                  '--color': column.color
+                }}
+                onClick={() => {
+                  const newValue = showColumn(value, column, activeColumns);
+                  onChange(newValue);
+                }}
+              >
+                <Flex align="center" justify="center">
+                  {column.title}
+                  <span>{valueStr}</span>
+                </Flex>
+              </Button>
+            );
+            return <Fragment key={column.name || index}>{typeof renderItem === 'function' ? renderItem({ item: column, value: itemValue, valueStr, el, index }) : el}</Fragment>;
+          })}
+        </Space.Compact>
+      )}
     </Flex>
   );
 };
