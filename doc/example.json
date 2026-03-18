@@ -3,7 +3,7 @@
   "list": [
     {
       "title": "基础示例",
-      "description": "展示 column-split 组件的基本用法，包括正常状态、只读状态和禁用状态。",
+      "description": "展示 ColumnSplit 组件的基本用法，包括正常、只读、禁用三种状态。",
       "code": "./base.js",
       "scope": [
         {
@@ -13,6 +13,48 @@
         },
         {
           "packageName": "@kne/current-lib_column-split/dist/index.css"
+        },
+        {
+          "name": "antd",
+          "packageName": "antd"
+        }
+      ]
+    },
+    {
+      "title": "受控模式",
+      "description": "展示 ColumnSplit 的受控模式用法，通过 value 和 onChange 控制列宽分配。",
+      "code": "./controlled.js",
+      "scope": [
+        {
+          "name": "_ColumnSplit",
+          "packageName": "@kne/current-lib_column-split",
+          "importStatement": "import * as _ColumnSplit from \"@kne/column-split\""
+        },
+        {
+          "packageName": "@kne/current-lib_column-split/dist/index.css"
+        },
+        {
+          "name": "antd",
+          "packageName": "antd"
+        }
+      ]
+    },
+    {
+      "title": "高级功能",
+      "description": "展示 ColumnSplit 的高级功能，包括最小/最大占比限制、自定义渲染、allowZero 等特性。",
+      "code": "./advanced.js",
+      "scope": [
+        {
+          "name": "_ColumnSplit",
+          "packageName": "@kne/current-lib_column-split",
+          "importStatement": "import * as _ColumnSplit from \"@kne/column-split\""
+        },
+        {
+          "packageName": "@kne/current-lib_column-split/dist/index.css"
+        },
+        {
+          "name": "antd",
+          "packageName": "antd"
         }
       ]
     }

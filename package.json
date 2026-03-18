@@ -1,6 +1,6 @@
 {
   "name": "@kne/column-split",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "通过拖动分隔条分配元素占比",
   "syntax": {
     "esmodules": true
@@ -90,6 +90,7 @@
   },
   "dependencies": {
     "@kne/use-control-value": "^0.1.9",
+    "@kne/use-ref-callback": "^0.1.2",
     "classname": "^0.0.0",
     "lodash": "^4.17.21"
   }
