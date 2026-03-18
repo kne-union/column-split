@@ -38,6 +38,10 @@
   }
 }
 
+.zero-item {
+  color: var(--color, var(--font-color, '#222'));
+}
+
 .column-item-content {
   height: 100%;
   width: 100%;
@@ -47,6 +51,10 @@
   padding: 4px 0;
   white-space: nowrap;
   overflow: hidden;
+
+  &.can-hide {
+    cursor: pointer;
+  }
 
   &:before {
     pointer-events: none;
