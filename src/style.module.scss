@@ -49,6 +49,7 @@
   color: var(--color, var(--font-color, '#222'));
   border-radius: 2px;
   padding: 4px 0;
+  box-sizing: border-box;
   white-space: nowrap;
   overflow: hidden;
 
