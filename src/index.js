@@ -10,8 +10,9 @@ import { calculateResizeValues, hideColumn, showColumn, calculateInitialValue, g
 
 const ColumnSplit = ({ columns = [], className, renderItem, readOnly, disabled, allowZero = false, ...props }) => {
   const [value, onChange] = useControlValue(props);
+  const hasValueProp = Object.prototype.hasOwnProperty.call(props, 'value');
   const initValue = useRefCallback(() => {
-    if (value) {
+    if (hasValueProp || value) {
       return;
     }
     onChange(calculateInitialValue(columns));
